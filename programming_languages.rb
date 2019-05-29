@@ -1,12 +1,12 @@
 def reformat_languages(languages)
   new_languages = {}
-  languages.each do |style, language|
+  languages.each do |type, language|
     language.each do |language_name, attribute|
       if new_languages[language_name] == nil
           new_languages[language_name] = attribute
         end
       new_languages[language_name][:style] = []
-      new_languages[language_name][:style] << style
+      new_languages[language_name][:style] << type
     end
   end
   new_languages[:javascript][:style] << :oo
