@@ -31,7 +31,7 @@ describe '#reformat_languages' do
         :javascript => {
           :type => "interpreted"
         }
-     
+
       }
     }
   }
@@ -44,9 +44,10 @@ describe '#reformat_languages' do
   end
 
   it 'reformats javascript properly' do
-    expect(result[:javascript][:type]).to eq("interpreted")
-    [:oo, :functional].each { |v| expect(result[:javascript][:style]).to include(v) }
+    javascript = {:type => "interpreted", :style => [:oo, :functional]}
+    javascript.each { |k,v| expect(result[:javascript][k]).to eq(v) }
   end
+    
 
   it 'reformats python properly' do
     python = {:type => "interpreted", :style => [:oo]}
